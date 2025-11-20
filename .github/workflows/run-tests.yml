@@ -1,4 +1,4 @@
-name: Run Python Tests
+name: Run Tests
 
 on:
   push:
@@ -9,23 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
+        python-version: '3.10'
 
     - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install pytest
+      run: pip install -r requirements.txt
 
-    - name: Show directory tree
+    - name: Run pytest for each test file
       run: |
-        echo "=== DIRECTORY TREE ==="
-        ls -R .
-
-    - name: Run tests
-      run: pytest -v .
+        pytest -v ex1_test_clean.py
+        pytest -v ex2_test_normalize.py
+        pytest -v ex3_test_evaluate.py
