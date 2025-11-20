@@ -20,8 +20,9 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Run pytest for each test file
+    - name: Run pytest for all tests
       run: |
         pytest -v ex1_test_clean.py
         pytest -v ex2_test_normalize.py
         pytest -v ex3_test_evaluate.py
+        pytest -v ex5_test_pipeline.py   # ⬅️ NEW TEST ADDED
