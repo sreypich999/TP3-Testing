@@ -24,6 +24,7 @@ jobs:
 
     - name: Show directory tree
       run: |
+        echo "=== DIRECTORY TREE ==="
         ls -R .
 
     - name: Run tests
